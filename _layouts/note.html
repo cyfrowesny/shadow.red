@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+{% assign cat = site.nav_categories | where: "id", page.category | first %}
+{% assign subs = site.data.subcategories[page.category] %}
+{% assign sub_match = subs | where: "slug", page.subcategory | first %}
+
+<main class="wrap note-page">
+  <div class="breadcrumb">
+    <a href="{{ '/' | relative_url }}">~</a>
+    <span class="sep">/</span>
+    {% if cat %}
+      <a href="{{ '/' | append: cat.slug | append: '/' | relative_url }}">{{ cat.name }}</a>
+      <span class="sep">/</span>
+    {% endif %}
+    <span>{{ page.title }}</span>
+  </div>
+
+  <h1>{{ page.title }}</h1>
+
+  <div class="meta">
+    {% if cat %}<a href="{{ '/' | append: cat.slug | append: '/' | relative_url }}" class="tag cat">{{ cat.name }}</a>{% endif %}
+    {% if sub_match %}<span class="tag">{{ sub_match.name }}</span>{% endif %}
+    {% if page.os %}
+      {% assign oslist = page.os | split: "," %}
+      {% for o in oslist %}
+        {% assign os_clean = o | strip %}
+        <span class="tag os-{{ os_clean }}">{{ os_clean }}</span>
+      {% endfor %}
+    {% endif %}
+  </div>
+
+  {{ content }}
+</main>

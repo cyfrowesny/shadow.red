@@ -1,0 +1,72 @@
+# Subcategories.
+# Edit `name` to whatever you want — that's what shows on the page.
+# `slug` is used for filtering/URLs (keep lowercase, hyphens only, must be unique within a category).
+# `desc` is optional — short tagline shown under the name on the category page.
+
+recon:
+  - { slug: dns-whois, name: "DNS & WHOIS", desc: "" }
+  - { slug: web-fingerprint, name: "Web Fingerprinting", desc: "" }
+  - { slug: subdomains, name: "Subdomain Enumeration", desc: "" }
+  - { slug: osint, name: "OSINT", desc: "" }
+  - { slug: network-discovery, name: "Network Discovery", desc: "" }
+  - { slug: nmap, name: "Nmap", desc: "" }
+  - { slug: service-enum, name: "Service Enumeration", desc: "" }
+  - { slug: web-content, name: "Web Content Discovery", desc: "" }
+
+initial-access:
+  - { slug: web-attacks, name: "Web Attacks", desc: "" }
+  - { slug: sqli, name: "SQL Injection", desc: "" }
+  - { slug: bruteforce, name: "Bruteforce", desc: "" }
+  - { slug: hash-cracking, name: "Hash Cracking", desc: "" }
+  - { slug: shells, name: "Shells", desc: "" }
+  - { slug: payloads, name: "Payloads", desc: "" }
+
+privesc:
+  - { slug: linux-enum, name: "Linux Enumeration", desc: "" }
+  - { slug: linux-privesc, name: "Linux Privesc", desc: "" }
+  - { slug: linux-tools, name: "Linux Tools", desc: "" }
+  - { slug: windows-enum, name: "Windows Enumeration", desc: "" }
+  - { slug: windows-tools, name: "Windows Tools", desc: "" }
+  - { slug: windows-services, name: "Windows Services", desc: "" }
+  - { slug: windows-tokens, name: "Windows Tokens", desc: "" }
+  - { slug: windows-tasks, name: "Windows Tasks", desc: "" }
+  - { slug: windows-uac, name: "UAC Bypass", desc: "" }
+  - { slug: windows-creds, name: "Windows Credentials", desc: "" }
+  - { slug: windows-misc, name: "Windows Misc", desc: "" }
+
+ad:
+  - { slug: ad-enum, name: "AD Enumeration", desc: "" }
+  - { slug: ad-attacks, name: "AD Attacks", desc: "" }
+  - { slug: ad-lateral, name: "Lateral Movement", desc: "" }
+  - { slug: evasion, name: "Evasion", desc: "" }
+
+tunnels:
+  - { slug: ssh, name: "SSH Tunneling", desc: "" }
+  - { slug: tunneling-tools, name: "Tunneling Tools", desc: "" }
+  - { slug: meterpreter, name: "Meterpreter", desc: "" }
+  - { slug: port-forwarding, name: "Port Forwarding", desc: "" }
+  - { slug: dns-tunnel, name: "DNS Tunneling", desc: "" }
+  - { slug: lateral-movement, name: "Lateral Movement", desc: "" }
+  - { slug: file-transfer, name: "File Transfer", desc: "" }
+  - { slug: linux-tunnel, name: "Linux Tunneling", desc: "" }
+  - { slug: windows-tunnel, name: "Windows Tunneling", desc: "" }
+  
+android:
+  - { slug: sub-01, name: "Basics", desc: "" }
+  - { slug: sub-02, name: "Static Analysis", desc: "" }
+  - { slug: sub-03, name: "Repackaging", desc: "" }
+  - { slug: sub-04, name: "Burp Suite", desc: "" }
+  - { slug: sub-05, name: "Logging", desc: "" }
+  - { slug: sub-06, name: "Vulnerabilities", desc: "" }
+  - { slug: sub-07, name: "Frida", desc: "" }
+  - { slug: sub-08, name: "Database", desc: "" }
+  - { slug: sub-09, name: "Tokens", desc: "" }
+  - { slug: sub-10, name: "Metasploit", desc: "" }
+  - { slug: sub-11, name: "Extra", desc: "" }
+
+wireless:
+  - { slug: sub-01, name: "Setup", desc: "" }
+  - { slug: sub-02, name: "Sniffing", desc: "" }
+  - { slug: sub-03, name: "Attacks", desc: "" }
+  - { slug: sub-04, name: "Fake AP", desc: "" }
+  - { slug: sub-05, name: "Extra", desc: "" }

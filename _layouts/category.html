@@ -1,0 +1,83 @@
+---
+layout: default
+---
+
+{% assign cat = site.nav_categories | where: "id", page.cat_id | first %}
+{% assign subs = site.data.subcategories[page.cat_id] %}
+{% assign cat_notes = site.notes | where: "category", page.cat_id | sort: "title" %}
+
+<section class="cat-hero">
+  <div class="wrap">
+    <div class="prompt">
+      <span class="user">root</span><span class="at">@</span><span class="host">shadow</span><span class="path">:~/{{ cat.slug }}</span><span class="sym">$</span> ls
+    </div>
+    <div class="cat-hero-row">
+      <div class="cat-glyph">[{{ cat.glyph }}]</div>
+      <div>
+        <h1>{{ cat.name }}</h1>
+        <p class="lede">{{ cat.tagline }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+
+  <div class="controls">
+    <div class="search">
+      <span class="sym">&gt;</span>
+      <input id="search" type="text" placeholder="search in {{ cat.name | downcase }}…" autocomplete="off">
+    </div>
+    <div class="os-toggle" role="group" aria-label="OS filter">
+      <button data-os="all">All</button>
+      <button data-os="linux">Linux</button>
+      <button data-os="windows">Windows</button>
+    </div>
+  </div>
+
+  {% if subs %}
+  <div class="subcat-bar visible single" data-cat="{{ page.cat_id }}">
+    <button class="subcat-chip active" data-sub="all">All</button>
+    {% for s in subs %}
+      <button class="subcat-chip" data-sub="{{ s.slug }}" title="{{ s.desc }}">{{ s.name }}</button>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <section class="notes-list">
+    <div class="notes-empty" style="display:none">no matches — try different filters</div>
+
+    {% for note in cat_notes %}
+      {% assign sub_match = subs | where: "slug", note.subcategory | first %}
+      <article class="note-row"
+               data-cat="{{ note.category }}"
+               data-sub="{{ note.subcategory }}"
+               data-os="{{ note.os }}"
+               data-search="{{ note.title | downcase }} {{ note.command | downcase }} {{ note.tools | downcase }} {{ note.subcategory | downcase }}">
+        <div class="note-main">
+          {% if note.command %}<code class="note-cmd">{{ note.command | escape }}</code>{% endif %}
+          <div class="note-title">
+            <a href="{{ note.url | relative_url }}">{{ note.title }}</a>
+          </div>
+        </div>
+        <div class="note-tags">
+          {% if sub_match %}<span class="tag">{{ sub_match.name }}</span>{% endif %}
+          {% if note.os %}
+            {% assign oslist = note.os | split: "," %}
+            {% for o in oslist %}
+              {% assign os_clean = o | strip %}
+              <span class="tag os-{{ os_clean }}">{{ os_clean }}</span>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+
+    {% if cat_notes.size == 0 %}
+      <div class="notes-empty" style="display:block">
+        no notes here yet — drop a markdown file in <code>_notes/</code> with <code>category: {{ page.cat_id }}</code>
+      </div>
+    {% endif %}
+  </section>
+
+</div>

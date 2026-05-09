@@ -1,0 +1,95 @@
+title: shadow.red
+description: universal pentest cheatsheet
+url: "https://shadow.red"
+baseurl: ""
+lang: en
+
+# Build
+markdown: kramdown
+highlighter: rouge
+permalink: /:collection/:path/
+
+# Collections
+collections:
+  notes:
+    output: true
+    permalink: /notes/:path/
+  cats:
+    output: true
+    permalink: /:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: notes
+    values:
+      layout: note
+  - scope:
+      path: ""
+      type: cats
+    values:
+      layout: category
+
+# Categories — IMPORTANT: key renamed to `nav_categories`
+# (Jekyll treats `site.categories` specially for posts — using a custom key prevents conflicts.)
+nav_categories:
+  - id: recon
+    slug: reconnaissance
+    name: Reconnaissance
+    tagline: Alert! To view more content, click the description below a terminal command.
+    glyph: "01"
+  - id: initial-access
+    slug: initial-access
+    name: Initial Access
+    tagline: Alert! To view more content, click the description below a terminal command.
+    glyph: "02"
+  - id: privesc
+    slug: privilege-escalation
+    name: Privilege Escalation
+    tagline: Alert! To view more content, click the description below a terminal command.
+    glyph: "03"
+  - id: ad
+    slug: active-directory
+    name: Active Directory
+    tagline: Alert! To view more content, click the description below a terminal command.
+    glyph: "04"
+  - id: tunnels
+    slug: everywhere-tunnels
+    name: Everywhere Tunnels
+    tagline: Alert! To view more content, click the description below a terminal command.
+    glyph: "05"
+  - id: android
+    slug: android
+    name: Android
+    tagline: Alert! To view more content, click the description below a terminal command.
+    glyph: "06"
+  - id: wireless
+    slug: wireless
+    name: Wireless
+    tagline: Alert! To view more content, click the description below a terminal command.
+    glyph: "07"
+
+# Author / external links — fill these in
+links:
+  blog:
+    label: notatki-hakera.pl
+    url: https://notatki-hakera.pl
+  youtube:
+    label: YouTube CTF Solutions Channel
+    url: "https://www.youtube.com/@cyfrowesny_online"    # paste your YT URL here
+  coffee:
+    label: Buy me a coffee
+    url: "https://buycoffee.to/notatkihakera"    # paste your buycoffee.to / ko-fi URL here
+
+# Build options
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
+  - .bundle
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
